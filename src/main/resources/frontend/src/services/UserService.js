@@ -4,7 +4,7 @@ const BASE_URL = "http://localhost:8080/login";
 //const BASE_URL1 = "http://localhost:8080/signUp";
 class UserService{
 
-    getUserPass(email){
+    getUserByEmail(email){
         return axios.get(BASE_URL+'/'+email);
     }
 

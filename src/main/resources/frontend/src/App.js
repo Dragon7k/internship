@@ -9,6 +9,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import AddResponse from './components/AddResponse';
 import AddField from './components/AddField';
+import EditProfile from './components/EditProfile';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
     <Head/>
     <Route path="/addResponse">
       <AddResponse/>
+    </Route>
+    <Route path="/edit_profile">
+      <EditProfile/>
     </Route>
     <Route path="/addField">
       <AddField/>

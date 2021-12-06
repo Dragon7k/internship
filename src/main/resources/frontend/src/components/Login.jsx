@@ -1,23 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/Login.css';
 import { Button } from "react-bootstrap";
-import CheckBox from "./CheckBox";
 import UserService from "../services/UserService";
+import { wait, waitFor } from "@testing-library/react";
+import { useHistory } from "react-router";
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [currentPassword, setCurrentPassword] = useState('');
+    const [remember, setRemember] = useState(false);
+    const history = useHistory();
+
 
     const checkUser = (e) => {
-        console.log(currentPassword);
-        getUserPass();
-        password === currentPassword ? alert('all Ok') : alert('not ok')
+        getUser();
     }
 
-    async function getUserPass() {
-        const response = await UserService.getUserPass(email);
-        setCurrentPassword(response.data)
+    function handleClick() {
+        history.push('/fields');
+        window.location.reload();
+    }
+
+
+    async function getUser() {
+        const response = await UserService.getUserByEmail(email);
+        console.log(response.data);
+        password === response.data.password ? allOk() : alert('wrong login or password')
+        localStorage.setItem('id', response.data.id);
+        localStorage.setItem('name', response.data.firstName);
+      
+    }
+
+    const allOk = (e) => {
+        if (remember === true) {
+            rememberUser();
+        }
+        alert('allOK');
+        handleClick();
+
+    }
+    
+    useEffect(() => {
+        if (localStorage.length > 0) {
+            setEmail(localStorage.getItem('email'));
+            setPassword(localStorage.getItem('password'));
+        }
+    });
+
+    const rememberUser = (e) => {
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
 
     }
 
@@ -31,13 +63,21 @@ const Login = () => {
                 <input class="text input--active" type="email" id="email" placeholder="E-mail"
                     value={email}
                     onChange={e => setEmail(e.target.value)} />
+
                 <input class="text input--active" type="password" id="password" placeholder="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)} />
             </div>
 
             <div className="formLinks">
-                <CheckBox value={'Remember me'} />
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onClick={() => setRemember(!remember)} />
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Remember me
+                    </label>
+                </div>
+
                 <a className="formLink" href="/">Forgot your Password</a>
             </div>
 

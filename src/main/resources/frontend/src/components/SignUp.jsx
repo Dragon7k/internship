@@ -65,11 +65,8 @@ const SignUp = () => {
                     onChange={e => setNumber(e.target.value)}
                 />
             </div>
-            <Button onClick={addNewUser} href="/login" className="formBtn">Log in</Button>
-            <div className="formLinks2">
-                <span className="formSpan">Dont't have an account</span>
-                <a className="formLink1" href="/">Sign up</a>
-            </div>
+            <Button onClick={addNewUser} href="/login" className="formBtn">Sign Up</Button>
+           
 
         </form>
     );

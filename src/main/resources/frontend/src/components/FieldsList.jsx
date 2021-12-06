@@ -5,6 +5,8 @@ import Button from '@restart/ui/esm/Button';
 import '../styles/FieldList.css'
 
 const FieldList = ({ posts }) => {
+    
+
     return (
         <div>
             <div className="tablehead">

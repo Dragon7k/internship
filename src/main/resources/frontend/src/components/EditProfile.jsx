@@ -4,10 +4,14 @@ import { Button } from "react-bootstrap";
 
 const EditProfile = () => {
 
+
+    const changeInfo =(e)=>{
+        
+    }
     return (
         <form className="formSignUp">
-            <h2 className="formLogo">LOGOTYPE</h2>
-            <h3 className="form_title">Sign Up</h3>
+            
+            <h2 className="form_title">Edit Profile</h2>
 
             <div class="formInner">
                 <input class="text input--active" id="First Name" placeholder="First Name" />
@@ -15,7 +19,7 @@ const EditProfile = () => {
                 <input class="text input--active" type="email" id="email" placeholder="E-mail" />
                 <input class="text input--active" id="number" placeholder="Phone Number" />
             </div>
-            <Button onClick={addNewUser} className="formBtn">Save</Button>
+            <Button onClick={changeInfo}className="formBtn">Save</Button>
            
 
         </form>

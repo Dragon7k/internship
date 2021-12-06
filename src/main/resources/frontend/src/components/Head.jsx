@@ -1,7 +1,11 @@
 import React from 'react';
 import '../styles/header.css'
+import { useState, useEffect } from 'react';
 import Select from './Select';
 const Head = () => {
+
+   
+
 
     return (
         <div className="title">
@@ -10,7 +14,7 @@ const Head = () => {
             <ul className="ul">
                 <li className="li"><a href="/fields">Fields</a></li>
                 <li className="li"><a href="/responses">Responses</a></li>
-                <Select />
+                <Select/>
             </ul>
         </div>
     );

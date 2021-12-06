@@ -11,7 +11,7 @@ const AddField = () => {
     const [label, setlabel] = useState('');
     const [type, setType] = useState('');
     const [option, setOption] = useState('');
-    const [required, setRequired] = useState(false);
+    var [required, setRequired] = useState(false);
     const [active, setActive] = useState(false);
 
     const addNewField = (e) => {          
@@ -66,8 +66,19 @@ const AddField = () => {
                 onChange={e => setOption(e.target.value)}/>
                 </div>
                 <div className="addField">
-                    <CheckBox value={'Required'}   onClick={() => requiredHandler} />
-                    <CheckBox value={'is Active'}  onClick={() => setActive(!active)}/>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onChange={()=>setRequired(!required)} />
+                    <label class="form-check-label" for="flexCheckChecked">
+                    Required
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onChange={()=>setActive(!active)} />
+                    <label class="form-check-label" for="flexCheckChecked">
+                    is Active
+                    </label>
+                </div>
+                
                 </div>
                 
             </div>
