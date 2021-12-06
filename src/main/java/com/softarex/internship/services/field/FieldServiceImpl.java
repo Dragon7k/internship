@@ -23,5 +23,10 @@ public class FieldServiceImpl implements FieldService{
         return fieldRepository.save(field);
     }
 
+    @Override
+    public Field getFieldById(long id) {
+        return fieldRepository.getFieldById(id);
+    }
+
 
 }

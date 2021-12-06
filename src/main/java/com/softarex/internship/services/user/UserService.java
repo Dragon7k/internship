@@ -9,4 +9,5 @@ public interface UserService {
     boolean existUser(String email);
     User add(User user);
     User getUser(long id);
+    User getUserByEmail(String email);
 }

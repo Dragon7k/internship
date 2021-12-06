@@ -20,6 +20,7 @@ public class ResponseController {
     }
     @PostMapping
     public Response addResponse(@RequestBody Response response){
+        System.out.println(response.getValue());
         return responseService.add(response);
     }
 }
