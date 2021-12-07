@@ -21,6 +21,7 @@ const EditProfile = () => {
             }
             console.log(updateUser);
             updateUserInDataBase(updateUser);
+            localStorage.setItem('name',firstName);
     }
 
     async function updateUserInDataBase(user) {
