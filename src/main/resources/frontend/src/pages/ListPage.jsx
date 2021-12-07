@@ -4,21 +4,25 @@ import FieldsList from '../components/FieldsList';
 import FieldService from '../services/FieldService';
 
 
-function ListPage() {
-  const[posts, setPosts] = useState([ ])
 
-  useEffect(()=>{
-    fetchPosts()
-  },[])
+
+function ListPage() {
+  const [posts, setPosts] = useState([])
+
   
-  async function fetchPosts(){
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
+
+  async function fetchPosts() {
     const response = await FieldService.getField();
     setPosts(response.data)
   }
-  
+
   return (
-    <div className = "App">
-     <FieldsList posts = {posts}/>
+    <div className="App">
+      <FieldsList posts={posts} />
     </div>
   );
 }

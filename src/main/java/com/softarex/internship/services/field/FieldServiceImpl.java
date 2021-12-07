@@ -14,6 +14,11 @@ public class FieldServiceImpl implements FieldService{
     private FieldRepository fieldRepository;
 
     @Override
+    public boolean existFieldByLabel(String label) {
+        return fieldRepository.existsFieldByLabel(label);
+    }
+
+    @Override
     public List<Field> getAll() {
         return fieldRepository.findAll();
     }
@@ -26,6 +31,11 @@ public class FieldServiceImpl implements FieldService{
     @Override
     public Field getFieldById(long id) {
         return fieldRepository.getFieldById(id);
+    }
+
+    @Override
+    public Field deleteById(long id) {
+        return fieldRepository.deleteById(id);
     }
 
 

@@ -8,6 +8,6 @@ import java.util.List;
 public interface UserService {
     boolean existUser(String email);
     User add(User user);
-    User getUser(long id);
+    User getUserById(int id);
     User getUserByEmail(String email);
 }

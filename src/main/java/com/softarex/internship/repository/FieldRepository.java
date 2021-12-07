@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FieldRepository extends JpaRepository<Field, Long> {
     Field getFieldById(Long id);
+    boolean existsFieldByLabel(String label);
+    Field deleteById(long id);
 }

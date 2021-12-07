@@ -23,12 +23,14 @@ const Login = () => {
 
 
     async function getUser() {
-        const response = await UserService.getUserByEmail(email);
-        console.log(response.data);
-        password === response.data.password ? allOk() : alert('wrong login or password')
-        localStorage.setItem('id', response.data.id);
-        localStorage.setItem('name', response.data.firstName);
-      
+        await UserService.getUserByEmail(email).then(res => {
+            password === res.data.password ? allOk() : alert('wrong login or password')
+            localStorage.setItem('id', res.data.id);
+            localStorage.setItem('name', res.data.firstName);
+        }).catch(
+            alert("user doesnt exist")
+        );
+
     }
 
     const allOk = (e) => {
@@ -39,7 +41,7 @@ const Login = () => {
         handleClick();
 
     }
-    
+
     useEffect(() => {
         if (localStorage.length > 0) {
             setEmail(localStorage.getItem('email'));
